@@ -318,25 +318,50 @@ nav.scrolled {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    align-items: center;
+    align-items: start;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .about-text p {
     font-size: 1.1rem;
     line-height: 1.8;
     color: var(--text-secondary);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.about-text .hero-cta {
+    margin-top: auto;
+    padding-top: 1rem;
 }
 
 .about-stats {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .stats-card {
     background: var(--gradient);
-    border-radius: 12px;
-    padding: 2rem;
+    border-radius: 16px;
+    padding: 2.5rem;
     color: white;
+    box-shadow: var(--shadow-lg);
+    transform: perspective(1000px) rotateY(5deg);
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 400px;
+}
+
+.stats-card:hover {
+    transform: perspective(1000px) rotateY(0deg) translateY(-5px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
 .stats-grid {
@@ -346,13 +371,30 @@ nav.scrolled {
     text-align: center;
 }
 
+.stat-item {
+    position: relative;
+    padding: 1rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
 .stat-item h3 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 0.5rem;
+    font-weight: 700;
 }
 
 .stat-item p {
     opacity: 0.9;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
 /* Skills Section */
@@ -777,12 +819,34 @@ footer {
 
     .about-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 3rem;
+    }
+
+    .stats-card {
+        max-width: none;
+        transform: none;
+        padding: 2rem;
+    }
+
+    .stats-card:hover {
+        transform: translateY(-5px);
     }
 
     .stats-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 1rem;
+        gap: 1.5rem;
+    }
+
+    .stat-item {
+        padding: 0.8rem;
+    }
+
+    .stat-item h3 {
+        font-size: 1.8rem;
+    }
+
+    .stat-item p {
+        font-size: 0.8rem;
     }
 
     .contact-container {
@@ -841,6 +905,18 @@ footer {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
+
+    .stats-card {
+        padding: 1.5rem;
+    }
+
+    .stat-item {
+        padding: 1rem;
+    }
+
+    .stat-item h3 {
+        font-size: 1.6rem;
+    }
     
     .profile-img {
         width: 150px;
@@ -854,6 +930,12 @@ footer {
     
     .section-title {
         font-size: 1.8rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
     }
 }
 
